@@ -141,8 +141,8 @@ display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 8px 26px rg
     <div>SKU 总数<b>20 个</b></div>
     <div>主图<b>20 张 · 1024×1024</b></div>
     <div>价格带<b>¥19.9 ~ 29.9</b></div>
-    <div>合规自检<b>0 风险词</b></div>
-    <div>服务统一<b>试听45分钟</b></div>
+    <div>投放目标<b>咨询量</b></div>
+    <div>建议出价<b>¥4.3 起</b></div>
   </div>
 </div>
 
@@ -151,7 +151,7 @@ display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 8px 26px rg
   <div class="tab" data-p="p2">02 孙老师号 10款</div>
   <div class="tab" data-p="p3">03 陈老师号 10款</div>
   <div class="tab" data-p="p4">04 发布配置表</div>
-  <div class="tab" data-p="p5">05 投放计划</div>
+  <div class="tab" data-p="p5">05 超级擦亮投放</div>
   <div class="tab" data-p="p6">06 咨询承接话术</div>
 </div>
 
@@ -179,7 +179,7 @@ display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 8px 26px rg
         <tr><td><b>宝贝描述</b></td><td>20 篇</td><td>本页可一键复制</td><td>统一 9 模块结构，每篇 480~500 字</td></tr>
         <tr><td><b>结构化数据</b></td><td>1 份</td><td><code>output/sku_data.json</code></td><td>便于批量导入或对接工具</td></tr>
         <tr><td><b>发布配置表</b></td><td>1 份</td><td>本页 Tab 04</td><td>价格/库存/发货/包邮逐项设定</td></tr>
-        <tr><td><b>投放计划</b></td><td>1 份</td><td>本页 Tab 05</td><td>6 个计划分拆 + 调价规则</td></tr>
+        <tr><td><b>投放计划</b></td><td>1 份</td><td>本页 Tab 05</td><td>按超级擦亮真实控件重写：5 计划分拆 + 出价调价规则</td></tr>
       </tbody>
     </table></div>
 
@@ -279,51 +279,120 @@ display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 8px 26px rg
 <!-- ════ 05 投放计划 ════ -->
 <div class="pane" id="p5">
   <div class="sec">
-    <h2>五、投放计划分拆</h2>
-    <p class="lead">20 个 SKU → 6 个计划，按实测逻辑分配预算与出价。</p>
+    <h2>五、投放计划（超级擦亮 · 真实后台机制）</h2>
+    <p class="lead">按大鱼动力「超级擦亮」的实际控件重写：无定向设置，系统托管流量，核心变量只有「出价」和「花费上限」。</p>
 
-    <h3>5.1 计划架构</h3>
-    <div class="tw"><table>
-      <thead><tr><th style="width:13%">计划</th><th style="width:22%">包含 SKU</th><th style="width:10%">日预算</th><th style="width:10%">出价</th><th style="width:12%">定向</th><th>说明</th></tr></thead>
-      <tbody>
-        <tr><td><b>P1 高中数学</b></td><td>S01 S02 S03</td><td><b>¥150</b></td><td>22元</td><td>智能推荐</td><td>主利润款，测 CTR 和咨询成本</td></tr>
-        <tr><td><b>P2 高中物理</b></td><td>S04 S05 S06 S07</td><td>¥100</td><td>22元</td><td>智能推荐</td><td>物理竞争小，成本低，SKU 多轮换</td></tr>
-        <tr><td><b>P3 高中其他</b></td><td>S08 S09 S10</td><td>¥60</td><td>20元</td><td>智能推荐</td><td>化学/英语/全科，观察为主</td></tr>
-        <tr><td><b>P4 初中数理</b></td><td>C01 C02 C03</td><td>¥80</td><td>22元</td><td>智能推荐</td><td>中考季重点</td></tr>
-        <tr><td><b>P5 初中其他</b></td><td>C04 C05 C06</td><td>¥60</td><td>20元</td><td>智能推荐</td><td>英语/语文/全科</td></tr>
-        <tr><td><b>P6 小学</b></td><td>P01 P02 P03 P04</td><td>¥50</td><td>20元</td><td>智能推荐</td><td>预算小，观察即可</td></tr>
-        <tr style="background:var(--goldl)"><td><b>合计</b></td><td>20 个 SKU</td><td><b>¥500/天</b></td><td colspan="3"><b>首期总预算 ¥500/天（双号合计）</b> · 预算紧则先只开 P1+P4 = ¥230/天</td></tr>
-      </tbody>
-    </table></div>
+    <div class="box b-y">
+      <div class="bt">⚠️ 先纠正一个重要认知</div>
+      <b>超级擦亮没有「智能推荐定向」</b>。它不是标准竞价投放，没有人群包、地域、兴趣等定向控件——系统自动决定给谁看。<br>
+      所以投放管理只剩两个旋钮：<b>① 出价（决定能拿到多少量）② 花费上限（决定最多花多少）</b>。你唯一能做的是<b>不断调出价、看数据</b>。
+    </div>
 
-    <h3>5.2 调价速查表</h3>
+    <h3>5.1 后台界面逐项怎么填</h3>
     <div class="tw"><table>
-      <thead><tr><th style="width:20%">状态</th><th style="width:26%">判断</th><th style="width:14%">动作</th><th>幅度</th></tr></thead>
+      <thead><tr><th style="width:16%">控件</th><th style="width:20%">选项</th><th style="width:14%">选什么</th><th>原因</th></tr></thead>
       <tbody>
-        <tr><td>跑不出去</td><td>30分钟 0咨询，曝光&lt;2000</td><td><span class="tag t-y">加价</span></td><td>22→28元（+27%），分两次</td></tr>
-        <tr><td>跑太快</td><td>1小时咨询&gt;8条</td><td><span class="tag t-b">降价</span></td><td>25→20元（-20%）</td></tr>
-        <tr><td>健康</td><td>成本20~25元，8h花完70~90%</td><td><span class="tag t-g">维持</span></td><td>不动</td></tr>
-        <tr><td>有曝光无咨询</td><td>CTR&lt;3%</td><td><span class="tag t-r">换素材</span></td><td>先不动出价，换主图</td></tr>
-        <tr><td>成本超标</td><td>连续3天&gt;32元</td><td><span class="tag t-r">止损</span></td><td>暂停该计划，换 SKU</td></tr>
+        <tr><td><b>更想获得</b><br><span style="font-size:11.5px;color:var(--gry)">推广目标</span></td><td>曝光量 / 浏览量 / 关注收藏量 / <b>咨询量</b> / 订单量</td><td><span class="tag t-g">咨询量</span></td><td><b>这是唯一的核心指标。</b>选曝光量是买眼球，选订单量平台会推高客单价但我们客单低跑不动。咨询量=直接买线索</td></tr>
+        <tr><td><b>计划类型</b></td><td>套餐擦亮 / <b>自定义擦亮</b></td><td><span class="tag t-g">自定义擦亮</span></td><td>套餐擦亮是固定打包（截图里是灰的），自定义可自主设出价和上限，灵活度更高</td></tr>
+        <tr><td><b>出价方式</b></td><td><b>控成本投放</b> / 快速起量模式<br><span style="font-size:11.5px;color:var(--gry)">平台推荐</span></td><td><span class="tag t-g">控成本投放</span></td><td>「优先控制投放成本，稳定成本下尽可能拿量」——K12 成本敏感，首期必须控成本。<b>快速起量会放大不可控成本，首期不用</b></td></tr>
+        <tr><td><b>预期成本出价</b></td><td>建议出价 / 自定义</td><td><span class="tag t-g">先用建议价</span><br>再自定义微调</td><td>见下方 5.2 详解</td></tr>
+        <tr><td><b>该计划花费上限</b></td><td>¥50 / ¥150 / 自定义</td><td><span class="tag t-y">按计划设</span></td><td>这是硬性日预算刹车，防止超支</td></tr>
       </tbody>
     </table></div>
 
     <div class="box b-b">
-      <div class="bt">📊 预期产出（按 ¥500/天 测算）</div>
-      日咨询量 ≈ 500 ÷ 22 ≈ <b>23 条</b> → 按咨询→成交 9% 算 ≈ <b>2 单/天</b> → 月成交约 60 单。<br>
-      <span style="color:var(--red);font-weight:700">⚠️ 前提是客户承接能力跟上。</span>23 条咨询/天意味着<b>每 30 分钟就要有一条咨询被响应</b>，这个必须先跟客户敲定人力，否则线索沉没率会随量上升。
+      <div class="bt">📌 为什么「咨询量」必须放第一位</div>
+      我们的模式是<b>试听19.9~29.9 引流 → 咨询 → 站外成交大课包</b>。站内几乎不会真下单（家长习惯先问价格）。<br>
+      <b>如果选「订单量」</b>：平台会去找最容易下单的人，但我们的低价试听单本身转化率极低（用户就是来薅 19.9 的），系统跑不动、没量。<br>
+      <b>如果选「曝光量」</b>：最便宜但买到的是无效点击，同样是咨询。<br>
+      <b>只有「咨询量」直接对应我们的目标</b>——而且平台按「咨询」计费，KPI 天然对齐。
     </div>
 
-    <h3>5.3 放量阶梯</h3>
+    <h3>5.2 出价怎么设（核心）</h3>
+    <div class="g g3">
+      <div class="c gold">
+        <h4>系统建议出价 ¥4.3</h4>
+        <p style="margin-top:7px">截图实测值，标注「预计提升100%」+「成本保障✅」。<br><br>
+        这是<b>平台根据行业模型算出的推荐值</b>，通常意味着「当前市场行情下，¥4.3 是一条咨询的合理价格」。</p>
+      </div>
+      <div class="c blu">
+        <h4>自定义 ¥5.1</h4>
+        <p style="margin-top:7px">标注「预计提升121%」——比建议价高约19%，预期效果提升21%。<br><br>
+        <b>这是提量的最快旋钮</b>：出价上调 → 竞得更多曝光 → 咨询量增加，但成本也线性上升。</p>
+      </div>
+      <div class="c grn">
+        <h4>首期定价策略</h4>
+        <p style="margin-top:7px"><b>第1-3 天</b>：用建议价 ¥4.3 跑，先看系统给多少量<br>
+        <b>第 4 天起</b>：若量不够，加到 ¥5.1（+19%）<br>
+        <b>后续</b>：每加0.5~1 元观察一天，逐步逼近目标成本</p>
+      </div>
+    </div>
+
+    <div class="box b-r" style="margin-top:14px">
+      <div class="bt">🔴 重要：出价 ¥4.3 意味着什么</div>
+      之前行业给的经验值是「K12 咨询成本 20~25 元/条」，但<b>系统建议只有 ¥4.3</b>。这两个数字差 5 倍，必须搞清楚哪个是真的：<br><br>
+      <b>情况A（大概率）</b>：¥4.3 是<b>「保底起步价」</b>，平台用低价把你这个新计划放进流量池试水。实际跑起来后，如果很快达到花费上限没跑完，说明量不够，需要加价。<br>
+      <b>情况B</b>：K12 类目确实便宜，¥4.3 就是真实成本 → <b>那日预算 ¥500 能买 116 条咨询/天</b>，远超预期，需立刻扩容客服。<br><br>
+      <b>首期必须做的验证</b>：开¥150 上限跑满 1 天，看「实际咨询成本」是多少。如果实际成本稳定在 4~6 元 → 情况B（超预期）；如果实际成本远超 5 元（比如到 10~20元），说明系统低价只是引流坑 → 按经验值调价。
+    </div>
+
+    <h3>5.3 计划拆分与预算分配</h3>
+    <p style="font-size:13.2px;color:var(--ink3);margin-bottom:11px">超级擦亮没有定向，那<b>唯一有效的分流手段就是「分计划 + 分商品」</b>。每个计划挂不同 SKU，单独设上限，才能判断哪个学科/学段真正能跑。</p>
+    <div class="tw"><table>
+      <thead><tr><th style="width:13%">计划</th><th style="width:20%">包含 SKU</th><th style="width:11%">花费上限</th><th style="width:11%">初始出价</th><th>跑什么</th></tr></thead>
+      <tbody>
+        <tr><td><b>P1 高中数学</b></td><td>S01 S02 S03</td><td><b>¥150</b></td><td>建议价 ¥4.3</td><td>利润主力，测真实成本上限</td></tr>
+        <tr><td><b>P2 高中物理</b></td><td>S04 S05 S06 S07</td><td>¥50</td><td>建议价 ¥4.3</td><td>竞争小的学科，观察量级</td></tr>
+        <tr><td><b>P3 初中数理</b></td><td>C01 C02 C03</td><td>¥50</td><td>建议价 ¥4.3</td><td>中考季重点</td></tr>
+        <tr><td><b>P4 初中其他</b></td><td>C04 C05 C06</td><td>¥50</td><td>建议价 ¥4.3</td><td>英语/语文/全科</td></tr>
+        <tr><td><b>P5 小学</b></td><td>P01 P02 P03 P04</td><td>¥50</td><td>建议价 ¥4.3</td><td>客单价低，观察为主</td></tr>
+        <tr style="background:var(--goldl)"><td><b>合计</b></td><td>20 个 SKU</td><td><b>¥350/天</b></td><td colspan="2"><b>首期 5 计划 ¥350/天</b>（用界面预设档即可，无需自定义）·预算紧则只开 P1 = ¥150/天</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="box b-g">
+      <div class="bt">✅ 为什么不一上来就 ¥500+</div>
+      <b>① 界面预设只有 ¥50/¥150 两档</b>，用预设更省事，不用手动算<br>
+      <b>② 新计划需要学习期</b>，5 个计划各自独立学习，总预算摊薄反而让每个计划都跑不出量<br>
+      <b>③ 先验证真实成本</b>，¥350/天 跑 3 天就能摸清「实际咨询成本」，比烧 ¥500 试错划算
+    </div>
+
+    <h3>5.4 出价调价速查表</h3>
+    <div class="tw"><table>
+      <thead><tr><th style="width:22%">状态</th><th style="width:26%">判断</th><th style="width:16%">动作</th><th>幅度</th></tr></thead>
+      <tbody>
+        <tr><td><b>量不够</b></td><td>花费上限 10:00 就烧完，或当天提前结束</td><td><span class="tag t-y">加出价</span></td><td>¥4.3 → ¥5.1（+19%），或每次 +0.5</td></tr>
+        <tr><td><b>量太大/成本超</b></td><td>实际咨询成本 &gt; 目标成本</td><td><span class="tag t-b">降出价</span></td><td>每次 -0.5，回到能稳定跑量的档位</td></tr>
+        <tr><td><b>健康</b></td><td>全天平稳花完上限，实际成本≈出价</td><td><span class="tag t-g">维持</span></td><td>不动，让它稳定跑</td></tr>
+        <tr><td><b>有曝光无咨询</b></td><td>曝光正常但咨询为零</td><td><span class="tag t-r">换主图</span></td><td>先别动出价——<b>问题在主图不在出价</b>。CTR 低说明内容不吸引</td></tr>
+        <tr><td><b>满 3 天跑不动</b></td><td>加价后仍无量</td><td><span class="tag t-r">换商品</span></td><td>暂停该计划，把预算移到跑得动的 SKU</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="box b-y">
+      <div class="bt">📊 双情景测算</div>
+      <b>情景 B（成本真的只有 ¥4.3）</b>：¥350/天 ÷ 4.3 ≈ <b>81 条咨询/天</b> → 按 9% 成交 ≈ 7.3 单/天<br>
+      <b>情景 A（实际成本到 ¥15）</b>：¥350/天 ÷ 15 ≈ <b>23 条咨询/天</b> → 按 9% 成交 ≈ 2.1 单/天<br>
+      <span style="color:var(--red);font-weight:700">⚠️ 两种情景差 3.5 倍，客服人力必须按最坏情况准备。</span>
+      若真出现 81 条/天，<b>至少要 2~3 个客服轮班才能 15 分钟内响应</b>——这必须在放量前和客户敲定。
+    </div>
+
+    <h3>5.5 放量阶梯</h3>
     <div class="tw"><table>
       <thead><tr><th style="width:16%">阶段</th><th style="width:16%">日预算</th><th style="width:26%">启动条件</th><th>说明</th></tr></thead>
       <tbody>
-        <tr><td><b>Week 1</b></td><td>¥500</td><td>—</td><td>跑通链路，测成本</td></tr>
-        <tr><td><b>Week 2</b></td><td>¥800</td><td>成本稳定20~25元满3天</td><td>预算集中到 TOP2 计划</td></tr>
-        <tr><td><b>Week 3-4</b></td><td>¥1200</td><td>加微率≥30%、成交率≥8%</td><td>开正价课包 SKU（¥299/599）</td></tr>
-        <tr><td><b>Month 2+</b></td><td>¥2000+</td><td>ROI≥3</td><td>规模化，冲店铺等级</td></tr>
+        <tr><td><b>Week 1</b></td><td>¥350</td><td>—</td><td>5 计划跑通，<b>摸清真实咨询成本</b></td></tr>
+        <tr><td><b>Week 2</b></td><td>¥500</td><td>成本摸清+客服就位</td><td>砍掉零咨询计划，预算集中到 TOP1-2</td></tr>
+        <tr><td><b>Week 3-4</b></td><td>¥800+</td><td>加微率≥30%、成交率≥8%</td><td>考虑切「快速起量模式」抢规模</td></tr>
+        <tr><td><b>Month 2+</b></td><td>¥1500+</td><td>ROI≥3</td><td>规模化，冲店铺等级</td></tr>
       </tbody>
     </table></div>
+
+    <div class="box b-b">
+      <div class="bt">💡 什么时候切「快速起量模式」</div>
+      控成本投放跑稳、成本已知、且<b>客服承接不构成瓶颈</b>时，可以单独开一个新计划试「快速起量模式」——算法会抢更优质流量，量更大但成本不可控。<br>
+      <b>务必只开一个新计划做A/B 对比</b>，别全量切换，否则成本失控且无法归因。
+    </div>
   </div>
 </div>
 
@@ -334,9 +403,10 @@ display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 8px 26px rg
     <p class="lead">素材再好，承接跟不上就白投。以下是第一句话模板，客服直接照用。</p>
 
     <div class="box b-r">
-      <div class="bt">⚠️ 前提：15 分钟内必须响应</div>
-      20 个 SKU 跑起来后预计日咨询 23 条。<b>每条咨询的黄金响应窗口是 15 分钟内</b>，超时转化率断崖式下跌。<br>
-      请客户指定专人负责，并配置闲鱼自动回复做兜底。
+      <div class="bt">⚠️ 前提：15 分钟内必须响应，且人力要按最坏情况准备</div>
+      系统建议出价 ¥4.3 意味着日咨询量有两种可能：<b>成本若真是 4.3 元 → 约 81 条/天</b>；<b>若实际到 15 元 → 约 23 条/天</b>。<br>
+      每条咨询的黄金响应窗口是 <b>15 分钟内</b>，超时转化率断崖式下跌。<b>请客户按 80+ 条/天 的上限准备 2~3 个客服轮班</b>，并配置闲鱼自动回复做兜底。<br>
+      <span style="color:var(--red);font-weight:700">这是放量前必须落实的硬前提，否则线索沉没率会随量指数上升。</span>
     </div>
 
     <h3>6.1 首句响应模板（按 SKU 类型分）</h3>
