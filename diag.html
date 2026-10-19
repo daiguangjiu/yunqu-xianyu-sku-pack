@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>三账号投放诊断与行动计划（2026-10-19）</title>
+<style>
+:root{--ink:#0f1b2d;--ink2:#1c2f4a;--ink3:#2f4463;--gold:#b8860b;--gold2:#d4a017;
+--goldl:#f6efe0;--red:#c0392b;--redl:#fdecea;--grn:#1e7a54;--grnl:#e8f5ef;
+--blu:#1b5e9e;--blul:#e9f2fb;--gry:#6b7785;--line:#e2e6ec;--bg:#f7f8fa;--w:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);
+color:var(--ink);line-height:1.75;font-size:15px;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#0f1b2d,#1c2f4a 55%,#2a4468);color:#fff;padding:44px 36px 38px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;
+background:radial-gradient(circle,rgba(212,160,23,.22),transparent 68%)}
+.hero .kick{font-size:12px;letter-spacing:3px;color:var(--gold2);font-weight:600;margin-bottom:12px}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:-.5px;margin-bottom:11px;position:relative;z-index:2}
+.hero .sub{font-size:15px;color:#c3cddb;max-width:820px;position:relative;z-index:2}
+.hero .meta{display:flex;gap:22px;margin-top:20px;flex-wrap:wrap;position:relative;z-index:2}
+.hero .meta div{font-size:12px;color:#8fa0b6}
+.hero .meta b{display:block;font-size:17px;color:#fff;font-weight:700;margin-top:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:26px 24px 70px}
+.sec{margin-top:28px}
+.sec>h2{font-size:20px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:11px}
+.sec>h2::before{content:"";width:4px;height:21px;background:linear-gradient(180deg,var(--gold2),var(--gold));border-radius:2px}
+.sec>.lead{color:var(--gry);font-size:13.5px;margin:0 0 14px 15px}
+h3{font-size:15.5px;font-weight:700;margin:20px 0 11px;padding-left:11px;border-left:3px solid var(--gold2)}
+.box{border-radius:10px;padding:15px 18px;font-size:13.3px;line-height:1.78;border-left:4px solid;margin:12px 0}
+.box .bt{font-weight:800;font-size:14px;margin-bottom:6px}
+.b-r{background:var(--redl);border-color:var(--red)}.b-r .bt{color:var(--red)}
+.b-g{background:var(--grnl);border-color:var(--grn)}.b-g .bt{color:var(--grn)}
+.b-b{background:var(--blul);border-color:var(--blu)}.b-b .bt{color:var(--blu)}
+.b-y{background:var(--goldl);border-color:var(--gold)}.b-y .bt{color:#8a6408}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:11px;background:var(--w);box-shadow:0 1px 3px rgba(15,27,45,.04)}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:600px}
+th{background:var(--ink);color:#fff;font-weight:700;font-size:12.3px;text-align:left;padding:10px 12px;white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid #eef1f5;color:var(--ink3);vertical-align:top;line-height:1.66}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#fafbfc}
+tbody tr:hover{background:var(--goldl)}
+td b{color:var(--ink);font-weight:700}
+.tag{display:inline-block;padding:2px 8px;border-radius:5px;font-size:11.3px;font-weight:700;white-space:nowrap}
+.t-r{background:var(--redl);color:var(--red)}.t-g{background:var(--grnl);color:var(--grn)}
+.t-b{background:var(--blul);color:var(--blu)}.t-y{background:var(--goldl);color:#8a6408}
+.t-n{background:#eef1f5;color:var(--gry)}
+.kpi{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}
+.kpi div{flex:1;min-width:108px;background:#fff;border:1px solid var(--line);border-radius:9px;padding:12px 13px}
+.kpi .v{font-size:20px;font-weight:800;letter-spacing:-.5px}
+.kpi .v.g{color:var(--grn)}.kpi .v.r{color:var(--red)}.kpi .v.y{color:var(--gold)}
+.kpi .k{font-size:11.3px;color:var(--gry);font-weight:600;margin-top:2px}
+ul.l{margin:9px 0 0;padding-left:0;list-style:none}
+ul.l li{position:relative;padding-left:19px;margin-bottom:7px;font-size:13.2px;color:var(--ink3);line-height:1.7}
+ul.l li::before{content:"";position:absolute;left:5px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--gold2)}
+ul.l.chk li::before{content:"✓";background:none;color:var(--grn);font-weight:800;top:0;left:2px}
+ul.l.no li::before{content:"✕";background:none;color:var(--red);font-weight:800;top:0;left:2px}
+ol.l{padding-left:20px;margin:9px 0}
+ol.l li{margin-bottom:7px;font-size:13.2px;color:var(--ink3);line-height:1.7}
+.g{display:grid;gap:14px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
+.c{background:var(--w);border:1px solid var(--line);border-radius:11px;padding:17px 18px}
+.c h4{font-size:14.2px;font-weight:700;margin-bottom:8px}
+.c p{font-size:13.1px;color:var(--ink3);line-height:1.72}
+.c.gold{background:linear-gradient(160deg,#fffdf7,#faf3e3);border-color:#e8d9b8}
+.c.red{background:var(--redl);border-color:#f5c6c0}
+.c.grn{background:var(--grnl);border-color:#bde3d1}
+.c .n{font-size:22px;font-weight:800;color:var(--gold);line-height:1.25}
+.c .n small{font-size:13px;color:var(--gry)}
+.foot{margin-top:38px;padding:20px;border-top:1px solid var(--line);color:var(--gry);font-size:12.3px;
+display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.steps{counter-reset:s}
+.step{display:flex;gap:13px;padding:13px 0;border-bottom:1px dashed var(--line)}
+.step:last-child{border-bottom:none}
+.step .no{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;
+display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+.step .bd{flex:1}
+.step .bd b{display:block;font-size:14px;margin-bottom:3px;color:var(--ink)}
+.step .bd span{font-size:13px;color:var(--ink3);line-height:1.68}
+@media(max-width:900px){.g3,.g2{grid-template-columns:1fr}.hero h1{font-size:24px}.wrap{padding:20px 15px 50px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="kick">投放诊断 · 2026-10-19</div>
+  <h1>三账号投放诊断与下一步动作</h1>
+  <div class="sub">基于客户管理页授权数据 + Day1 投放实测数据。三个账号均处「保护中」冷启动阶段，核心问题不是预算，而是账户权重与投放结构。</div>
+  <div class="meta">
+    <div>账号<b>3 个</b></div>
+    <div>可用余额<b>¥2810</b></div>
+    <div>当前阶段<b>保护中</b></div>
+    <div>Day1 曝光<b>233</b></div>
+    <div>Day1 花费<b>¥0.14</b></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="sec">
+  <h2>一、三账号状态（客户管理页实测）</h2>
+  <p class="lead">数据来源：dayu.goofish.com/agency/clientManage</p>
+
+  <div class="tw"><table>
+    <thead><tr><th style="width:20%">客户公司名称</th><th style="width:18%">客户闲鱼昵称</th>
+    <th style="width:16%">客户会员昵称/ID</th><th style="width:10%">授权时间</th>
+    <th style="width:9%">已运行</th><th style="width:9%">余额</th><th>状态</th></tr></thead>
+    <tbody>
+      <tr><td><b>勤学善思陈老师</b></td><td>勤学善思陈老师</td>
+        <td>sy623179017258</td><td>2026-10-15</td><td><b>4 天</b></td><td><b>¥880</b></td>
+        <td><span class="tag t-g">已授权</span> <span class="tag t-y">保护中</span> <span class="tag t-n">代投</span></td></tr>
+      <tr><td><b>博学善教孙老师</b></td><td>博学善教孙老师</td>
+        <td>sy195183376055</td><td>2026-10-16</td><td><b>3 天</b></td><td><b>¥930</b></td>
+        <td><span class="tag t-g">已授权</span> <span class="tag t-y">保护中</span> <span class="tag t-n">代投</span></td></tr>
+      <tr><td><b>专注提分加贝老师</b></td><td>专注提分加贝老师</td>
+        <td>sy404092572940</td><td>2026-10-17</td><td><b>2 天</b></td><td><b>¥1000</b></td>
+        <td><span class="tag t-g">已授权</span> <span class="tag t-y">保护中</span> <span class="tag t-n">代投</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box b-b">
+    <div class="bt">关键发现：三个号都是「保护中」</div>
+    <b>「保护中」是平台对新授权代理客户设置的冷启动保护期</b>——这直接解释了 Day1 为什么只跑出233 曝光、¥0.14 花费。<br>
+    保护期内系统的限制：<b>① 探索池小，不敢给量（怕把钱浪费在新号上）② 出价再高也难立刻起量 ③ 需要时间积累账户与商品权重</b>。<br>
+    所以 <b>Day1 的数据不算「失败」，属于正常范围</b>。真正的判断窗口是授权后第 4~7 天，也就是<b>现在到 10-22</b>。
+  </div>
+
+  <div class="kpi">
+    <div><div class="v g">¥2810</div><div class="k">三号可用余额</div></div>
+    <div><div class="v">445/天</div><div class="k">计划日预算</div></div>
+    <div><div class="v y">6.3 天</div><div class="k">余额可支撑</div></div>
+  </div>
+
+  <div class="box b-g">
+    <div class="bt">[OK] 结论：余额完全不是问题</div>
+    三号余额合计 ¥2810，按计划 ¥445/天 计算可支撑 <b>6.3 天</b>。
+    <b>所以 Day1 的问题 100% 出在「账户太新+ 投放结构」上，与预算无关。</b>
+    不要为了「花完预算」而盲目加价，要先修结构。
+  </div>
+</div>
+
+<div class="sec">
+  <h2>二、Day1 投放数据的问题定位</h2>
+  <p class="lead">2026-10-17 实测：总曝光 233 / 总点击 0 / 总花费 ¥0.14 / 咨询 0</p>
+
+  <div class="box b-r">
+    <div class="bt">[重要] 核心判断：不是「主图点击率低」，是「根本没进竞价」</div>
+    这个区分很重要，因为两者的解法完全相反。<br><br>
+    <b>如果真是主图吸引不到人</b>，表现应该是：曝光持续消耗、点击仍为 0、花费在涨。<br>
+    <b>实际是</b>：曝光本身只有 233、几乎没花钱 → <b>说明系统根本没把你的商品放进竞得队列</b>。<br><br>
+    <b>所以现在换主图属于盲测，换完也不知道好没好。</b>必须先解决「有没有量」的问题。
+  </div>
+
+  <h3>2.1 四个原因（按重要性排序）</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:6%">#</th><th style="width:19%">原因</th><th style="width:29%">证据</th><th>解法</th></tr></thead>
+    <tbody>
+      <tr><td><b>1</b></td><td><b>保护期冷启动</b><br><span class="tag t-r">最主要</span></td>
+        <td>客户管理页明确显示三个号「保护中」</td>
+        <td>只能等 + 用出价抢量。<b>第4~7 天才是真判断点</b></td></tr>
+      <tr><td><b>2</b></td><td><b>商品摊太薄</b></td>
+        <td>Day1 有 <b>20 个宝贝</b>在投，孙老师号 3 个计划平均每plan 仅¥5~15</td>
+        <td><b>每号砍到 4 个商品、1 个计划</b>，集中火力</td></tr>
+      <tr><td><b>3</b></td><td><b>出价偏低</b></td>
+        <td>三个计划出价均为系统建议价 <b>¥4.3</b></td>
+        <td>保护期需要溢价抢量：<b>¥6.0（新号 ¥7.0）</b></td></tr>
+      <tr><td><b>4</b></td><td><b>时段偏窄</b></td>
+        <td>计划投放时段为 <b>8:00-23:00</b></td>
+        <td>改 <b>7:00-24:00</b>，多覆盖早通勤与睡前两个高峰</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>2.2 还有一个被忽略的事实</h3>
+  <div class="box b-y">
+    <div class="bt">[提示] 10-18 至 10-19 这两天的数据</div>
+    Day1 是 10-17，<b>10-18 和 10-19 的数据我还没拿到</b>（后台数据需要登录才能查看，我无法自动抓取）。<br>
+    <b>这两天是否已经调整过？如果已经按上一版方案执行了（提价/砍商品/合计划），那今天拿到的数据就是调整后的效果，非常有参考价值。</b><br>
+    <span style="color:var(--gry)">这也是我需要你提供后台截图的原因——没有这两天的数据，只能停留在假设层面。</span>
+  </div>
+</div>
+
+<div class="sec">
+  <h2>三、下一步动作清单</h2>
+  <p class="lead">按优先级排序，今天就能执行。</p>
+
+  <div class="box b-r">
+    <div class="bt">[必须] 第 0 步：确认 18-19 号是否已调整</div>
+    在执行下面任何操作前，先确认一件事：<b>10-18 / 10-19 你有没有按上一版方案改过出价或商品？</b><br>
+    <b>如果改过</b> → 先抓今天的数据，对比看效果，再决定下一步。<br>
+    <b>如果没改</b> → 现在的设置还是「¥4.3 + 20 商品 + 3 计划」，需要立刻按下面执行。
+  </div>
+
+  <h3>3.1 逐号操作清单</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:14%">账号</th><th style="width:24%">商品调整</th>
+    <th style="width:26%">投放调整</th><th>验收标准</th></tr></thead>
+    <tbody>
+      <tr><td><b>勤学善思<br>陈老师</b><br><span style="font-size:11.5px;color:var(--gry)">已跑4天</span></td>
+        <td>下架除 <b>C01 C02 C04 C06</b> 外的所有宝贝<br>标题/主图替换为安全版</td>
+        <td>合并为 <b>1 个计划</b><br>预算 <b>¥150</b><br>出价 4.3 → <b>¥6.0</b><br>时段 <b>7:00-24:00</b></td>
+        <td>今日曝光 ≥2000<br>点击 ≥10</td></tr>
+      <tr><td><b>博学善教<br>孙老师</b><br><span style="font-size:11.5px;color:var(--gry)">已跑3天</span></td>
+        <td>下架除 <b>S01 S04 S05 S08</b> 外的所有宝贝<br>标题/主图替换为安全版</td>
+        <td>同样合并为 <b>1 个计划</b><br>预算 <b>¥150</b><br>出价 <b>¥6.0</b><br>时段 <b>7:00-24:00</b></td>
+        <td>今日曝光 ≥2000<br>点击 ≥10</td></tr>
+      <tr><td><b>专注提分<br>加贝老师</b><br><span style="font-size:11.5px;color:var(--gry)">新号2天</span></td>
+        <td><b>只保留 3 个</b>：J01 J02 J03<br>其余全部不上架</td>
+        <td>新建 <b>1 个计划</b><br>预算 <b>¥145</b><br>出价 <b>¥7.0</b>（新号溢价）<br>时段 <b>7:00-24:00</b></td>
+        <td>今日曝光 ≥500<br>点击 ≥3</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>3.2 为什么加贝老师号只投 3 个</h3>
+  <div class="box b-y">
+    <div class="bt">[提示] 新号首日的预期管理</div>
+    新号权重为零 + 保护期内，<b>首日曝光可能仍只有几百</b>，这是正常的。<br>
+    首日目标<b>不是出单</b>，而是<b>跑到 500+ 曝光、3+ 点击</b>——只要有点击，就说明主图和文案没问题。<br>
+    如果首日曝光 &lt;200，明天出价再加 ¥1，直到能稳定跑到 500 曝光为止。
+  </div>
+
+  <h3>3.3 三天判断标准</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:16%">时间</th><th style="width:22%">正常表现</th>
+    <th style="width:26%">异常信号</th><th>该做什么</th></tr></thead>
+    <tbody>
+      <tr><td><b>今天<br>10-19</b></td>
+        <td>曝光 500~2000<br>CTR 0.3%~1%<br>首次咨询出现</td>
+        <td>曝光仍 &lt;500</td>
+        <td>执行上述调整，出价再+1元</td></tr>
+      <tr><td><b>明天<br>10-20</b></td>
+        <td>曝光 2000~8000<br>CTR 0.5%~2%<br>咨询 5~15</td>
+        <td>曝光够了但 <b>CTR 仍为 0</b></td>
+        <td><b>换主图</b>——此时才轮到判断素材</td></tr>
+      <tr><td><b>后天<br>10-21</b></td>
+        <td>曝光 5000+<br>CTR ≥1%<br>咨询 15+</td>
+        <td>咨询有但没成交</td>
+        <td>查承接（详情页/客服话术），不是投放问题</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box b-b">
+    <div class="bt">[数据] 统计学提醒：别太早下结论</div>
+    <b>233 次曝光的样本量，在统计上无法判断 CTR 好坏。</b>
+    业界通常要 <b>≥1000 次曝光</b>才有参考意义，CTR 的标准误在 1000 曝光下仍约±1%。<br>
+    所以：<b>今天不要因为「还是 0 点击」就换图</b>。先按上面调整拿量，等曝光过 1000 再判断素材。
+  </div>
+
+  <h3>3.4 三账号差异化出价的逻辑</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:16%">账号</th><th style="width:14%">出价</th>
+    <th style="width:28%">原因</th><th>本周目标</th></tr></thead>
+    <tbody>
+      <tr><td><b>陈老师号</b></td><td>¥6.0</td>
+        <td>跑得最久（4天），有一定基础权重，溢价压力最小</td>
+        <td>跑通模型，验证 CTR</td></tr>
+      <tr><td><b>孙老师号</b></td><td>¥6.0</td>
+        <td>与陈老师同价做<b>对照实验</b>，验证学科差异是否影响效率</td>
+        <td>找出高效学科组合</td></tr>
+      <tr><td><b>加贝老师号</b></td><td><b>¥7.0</b></td>
+        <td>最新（2天），无历史数据，必须用更高溢价买曝光</td>
+        <td>判断新号冷启动所需时长</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box b-g">
+    <div class="bt">[OK] 本周目标定义（务必对齐）</div>
+    本周（10-19~10-25）的目标<b>不是出单，是拿到有效数据</b>：
+    <ul class="l chk" style="margin-top:7px">
+      <li>三号累计曝光 <b>≥20000</b>（每号约 6600）</li>
+      <li>三号 CTR 跑到 <b>≥1%</b>，找出哪种主图风格最有效</li>
+      <li>咨询量跑到 <b>50+</b>，验证详情页与承接话术</li>
+      <li>找到 <b>2~3 个咨询转化率最高的 SKU</b>，后续集中资源</li>
+    </ul>
+    <span style="color:var(--gry)">保护期内谈ROI 为时过早，先把数据量跑够。</span>
+  </div>
+</div>
+
+<div class="sec">
+  <h2>四、我需要你补充的数据</h2>
+  <p class="lead">大鱼后台需要扫码登录，我无法自动抓取。你只需提供 2~3 张截图。</p>
+
+  <div class="box b-y">
+    <div class="bt">[说明] 为什么抓不到</div>
+    我已尝试用本地浏览器的闲鱼 Cookie 登录，<b>被重定向到登录页</b>。原因：闲鱼卖家账号体系与<b>大鱼动力代理商账号体系是两套独立鉴权</b>，Cookie 不通用，必须人工短信/扫码登录一次。
+  </div>
+
+  <div class="steps">
+    <div class="step"><div class="no">1</div><div class="bd">
+      <b>数据汇总页截图（最重要）</b>
+      <span>进入客户账号 → <code>擦亮</code> 标签 → 顶部数据汇总卡片。需要包含：实时擦亮花费 / 实时曝光数 / 擦亮花费 / 曝光数 / 点击数 / 咨询量 / 下单笔数。<br>
+      <b>建议时间范围选「近7日」</b>，这样能看到 10-17 到今天的完整曲线。若三个号数据接近，截一个号即可。</span>
+    </div></div>
+    <div class="step"><div class="no">2</div><div class="bd">
+      <b>计划列表页截图</b>
+      <span>同一页面往下滚到「计划」列表（非「宝贝」列表）。需要：计划ID / 计划名称 / 宝贝数 / 今日预算 / 预期成本出价 / 投放时段 / 状态。</span>
+    </div></div>
+    <div class="step"><div class="no">3</div><div class="bd">
+      <b>宝贝列表页截图（可选）</b>
+      <span>如果想知道具体哪个宝贝在出量、哪个在拖后腿，补一张「宝贝」列表，含各宝贝的曝光/点击/花费。</span>
+    </div></div>
+  </div>
+
+  <div class="box b-g">
+    <div class="bt">[提示] 有了这些我能立刻做什么</div>
+    <ul class="l chk">
+      <li>判断是真「跑不动」还是「保护期正常现象」</li>
+      <li>定位是哪个计划或哪个宝贝在拖后腿</li>
+      <li>校准 ¥6.0 / ¥7.0 的出价是否给对，是否需要再往上加</li>
+      <li>判断是否该提前切「快速起量模式」</li>
+      <li>按实际曝光量重新分配三号预算</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec">
+  <h2>五、风险提醒</h2>
+  <div class="tw"><table>
+    <thead><tr><th style="width:20%">风险</th><th style="width:10%">等级</th><th style="width:32%">描述</th><th>处理</th></tr></thead>
+    <tbody>
+      <tr><td><b>保护期过长</b></td><td><span class="tag t-y">中</span></td>
+        <td>若 10-22 前曝光仍不过 500，说明不只是保护期问题</td>
+        <td>考虑换商品或提价到 ¥8，同时联系平台客服确认保护规则</td></tr>
+      <tr><td><b>三号同质竞争</b></td><td><span class="tag t-y">中</span></td>
+        <td>三个号推同类商品会互相稀释</td>
+        <td>必须做学科错位：陈=代数英语 / 孙=数理 / 加贝=综合难点</td></tr>
+      <tr><td><b>余额消耗速度</b></td><td><span class="tag t-g">低</span></td>
+        <td>¥2810 按¥445/天 可支撑 6.3 天</td>
+        <td>够本周，注意第2 周需充值</td></tr>
+      <tr><td><b>资质表述</b></td><td><span class="tag t-r">高</span></td>
+        <td>「专职教师」「持证」若无实际资质属虚假宣传</td>
+        <td>务必核实两个老师的教师资格证真实有效</td></tr>
+      <tr><td><b>教育类资质</b></td><td><span class="tag t-r">高</span></td>
+        <td>K12 学科类受政策监管</td>
+        <td>确认营业执照经营范围含教育培训，避免限流</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="foot">
+  <span>三账号投放诊断 · 2026-10-19</span>
+  <span>数据来源：大鱼动力客户管理页 + Day1 实测 · 需补充后台截图</span>
+</div>
+
+</div>
+</body>
+</html>
