@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Day2 数据诊断 · 2026-10-18</title>
+<style>
+:root{--ink:#0f1b2d;--ink3:#2f4463;--gold:#b8860b;--gold2:#d4a017;--goldl:#f6efe0;
+--red:#c0392b;--redl:#fdecea;--grn:#1e7a54;--grnl:#e8f5ef;--blu:#1b5e9e;--blul:#e9f2fb;
+--org:#d35400;--orgl:#fdf3e7;--gry:#6b7785;--line:#e2e6ec;--bg:#f7f8fa;--w:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);
+color:var(--ink);line-height:1.78;font-size:15px;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#0f1b2d,#1c2f4a 55%,#2a4468);color:#fff;padding:40px 32px 36px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;
+background:radial-gradient(circle,rgba(212,160,23,.22),transparent 68%)}
+.hero .kick{font-size:12px;letter-spacing:3px;color:var(--gold2);font-weight:600;margin-bottom:11px}
+.hero h1{font-size:28px;font-weight:800;margin-bottom:10px;position:relative;z-index:2}
+.hero .sub{font-size:15px;color:#c3cddb;max-width:820px;position:relative;z-index:2}
+.hero .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;position:relative;z-index:2}
+.hero .meta div{font-size:11.5px;color:#8fa0b6}
+.hero .meta b{display:block;font-size:19px;color:var(--gold2);font-weight:800;margin-top:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 22px 64px}
+.sec{margin-top:28px}
+.sec>h2{font-size:20px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:11px}
+.sec>h2::before{content:"";width:4px;height:21px;background:linear-gradient(180deg,var(--gold2),var(--gold));border-radius:2px}
+.sec>.lead{color:var(--gry);font-size:13.5px;margin:0 0 14px 15px}
+h3{font-size:15.5px;font-weight:700;margin:20px 0 11px;padding-left:11px;border-left:3px solid var(--gold2)}
+.box{border-radius:10px;padding:15px 18px;font-size:13.4px;line-height:1.8;border-left:4px solid;margin:12px 0}
+.box .bt{font-weight:800;font-size:14.5px;margin-bottom:6px}
+.b-r{background:var(--redl);border-color:var(--red)}.b-r .bt{color:var(--red)}
+.b-g{background:var(--grnl);border-color:var(--grn)}.b-g .bt{color:var(--grn)}
+.b-b{background:var(--blul);border-color:var(--blu)}.b-b .bt{color:var(--blu)}
+.b-y{background:var(--goldl);border-color:var(--gold)}.b-y .bt{color:#8a6408}
+.b-o{background:var(--orgl);border-color:var(--org)}.b-o .bt{color:var(--org)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:11px;background:var(--w);box-shadow:0 1px 3px rgba(15,27,45,.04)}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:580px}
+th{background:var(--ink);color:#fff;font-weight:700;font-size:12.3px;text-align:left;padding:10px 12px;white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid #eef1f5;color:var(--ink3);vertical-align:top;line-height:1.68}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#fafbfc}
+tbody tr:hover{background:var(--goldl)}
+td b{color:var(--ink);font-weight:700}
+.tag{display:inline-block;padding:2px 8px;border-radius:5px;font-size:11.3px;font-weight:700;white-space:nowrap}
+.t-r{background:var(--redl);color:var(--red)}.t-g{background:var(--grnl);color:var(--grn)}
+.t-b{background:var(--blul);color:var(--blu)}.t-y{background:var(--goldl);color:#8a6408}
+.t-o{background:var(--orgl);color:var(--org)}.t-n{background:#eef1f5;color:var(--gry)}
+.kpi{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.kpi div{flex:1;min-width:104px;background:#fff;border:1px solid var(--line);border-radius:9px;padding:13px}
+.kpi .v{font-size:21px;font-weight:800;letter-spacing:-.5px}
+.kpi .v.g{color:var(--grn)}.kpi .v.r{color:var(--red)}.kpi .v.y{color:var(--gold)}
+.kpi .v.o{color:var(--org)}.kpi .v.b{color:var(--blu)}
+.kpi .k{font-size:11.5px;color:var(--gry);font-weight:600;margin-top:2px}
+.funnel{background:#fff;border:1px solid var(--line);border-radius:11px;padding:20px}
+.fn{display:flex;align-items:center;gap:13px;margin-bottom:13px}
+.fn:last-child{margin-bottom:0}
+.fn .lb{width:96px;flex-shrink:0;font-size:13px;font-weight:600;color:var(--ink3)}
+.fn .bx{flex:1}
+.fn .bw{height:32px;border-radius:6px;display:flex;align-items:center;padding-left:12px;color:#fff;font-weight:800;font-size:13.5px}
+.fn .vw{width:130px;flex-shrink:0;font-size:12.5px;color:var(--gry)}
+.fn .vw b{color:var(--ink);font-weight:700}
+.g{display:grid;gap:13px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
+.c{background:var(--w);border:1px solid var(--line);border-radius:11px;padding:16px 17px}
+.c h4{font-size:14px;font-weight:700;margin-bottom:7px}
+.c p{font-size:13px;color:var(--ink3);line-height:1.72}
+.c.gold{background:linear-gradient(160deg,#fffdf7,#faf3e3);border-color:#e8d9b8}
+.c.red{background:var(--redl);border-color:#f5c6c0}
+.c.grn{background:var(--grnl);border-color:#bde3d1}
+ul.l{margin:9px 0 0;padding-left:0;list-style:none}
+ul.l li{position:relative;padding-left:20px;margin-bottom:8px;font-size:13.3px;color:var(--ink3);line-height:1.72}
+ul.l li::before{content:"";position:absolute;left:5px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--gold2)}
+ul.l.chk li::before{content:"✓";background:none;color:var(--grn);font-weight:800;top:0;left:2px}
+ul.l.no li::before{content:"✕";background:none;color:var(--red);font-weight:800;top:0;left:2px}
+ol.l{padding-left:20px;margin:9px 0}
+ol.l li{margin-bottom:8px;font-size:13.3px;color:var(--ink3);line-height:1.72}
+.steps{counter-reset:s}
+.step{display:flex;gap:13px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.step:last-child{border-bottom:none}
+.step .no{flex-shrink:0;width:27px;height:27px;border-radius:50%;background:var(--ink);color:#fff;
+display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13.5px}
+.step.p0 .no{background:var(--red)}
+.step.p1 .no{background:var(--gold)}
+.step .bd{flex:1}
+.step .bd b{display:block;font-size:14.2px;margin-bottom:3px;color:var(--ink)}
+.step .bd span{font-size:13.2px;color:var(--ink3);line-height:1.72}
+.foot{margin-top:34px;padding:18px;border-top:1px solid var(--line);color:var(--gry);font-size:12.5px;
+display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:900px){.g3,.g2{grid-template-columns:1fr}.hero h1{font-size:23px}.wrap{padding:20px 15px 46px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="kick">Day2 复盘 · 2026-10-18 数据</div>
+  <h1>投放已跑起来，但转化环节断了</h1>
+  <div class="sub">曝光 12,259、花费 ¥125.84、点击 50 —— 流量端完全正常。<b>问题出在「点击→询单」这一环：50 次点击 0 询单。</b></div>
+  <div class="meta">
+    <div>总曝光<b>12,259</b></div>
+    <div>总花费<b>¥125.84</b></div>
+    <div>总点击<b>50</b></div>
+    <div>CTR<b>0.41%</b></div>
+    <div>询单量<b class="c" style="color:#ff6b6b">0</b></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="sec">
+  <h2>一、Day1 vs Day2 完整对比</h2>
+  <p class="lead">10-17（Day1）vs 10-18（Day2）</p>
+
+  <div class="tw"><table>
+    <thead><tr><th style="width:20%">指标</th><th style="width:22%">陈老师号 Day1→Day2</th>
+    <th style="width:22%">孙老师号 Day1→Day2</th><th>两号合计 Day2</th></tr></thead>
+    <tbody>
+      <tr><td><b>擦亮花费</b></td><td>¥0.03 → <b>¥67.72</b><br><span class="tag t-g">×2257</span></td>
+        <td>¥0.08 → <b>¥58.12</b><br><span class="tag t-g">×726</span></td>
+        <td><b>¥125.84</b></td></tr>
+      <tr><td><b>曝光数</b></td><td>52 → <b>5,655</b><br><span class="tag t-g">×109</span></td>
+        <td>111 → <b>6,604</b><br><span class="tag t-g">×60</span></td>
+        <td><b>12,259</b></td></tr>
+      <tr><td><b>点击数</b></td><td>1 → <b>26</b><br><span class="tag t-g">×26</span></td>
+        <td>0 → <b>24</b></td>
+        <td><b>50</b></td></tr>
+      <tr><td><b>询单量</b></td><td>0 → <b style="color:var(--red)">0</b></td>
+        <td>0 → <b style="color:var(--red)">0</b></td>
+        <td><b style="color:var(--red)">0</b></td></tr>
+      <tr><td><b>下单笔数</b></td><td>0 → 0</td><td>0 → 0</td><td>0</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box b-g">
+    <div class="bt">[OK] 流量端完全跑起来了</div>
+    Day2 曝光 <b>12,259</b>、花费 <b>¥125.84</b>，两个号都正常跑量，<b>CTR 0.41% 属于教育类目可接受水平</b>。<br>
+    点击成本 <b>¥2.52/次</b>，比系统建议出价 ¥4.3 还低——说明<b>我们出的 ¥6.0 出价是有效的</b>，买到了量。
+  </div>
+
+  <h3>1.1 两号横向对比：各有优势</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:24%">派生指标</th><th style="width:20%">陈老师号</th>
+    <th style="width:20%">孙老师号</th><th>谁更好</th></tr></thead>
+    <tbody>
+      <tr><td>CTR（点击率）</td><td><b>0.46%</b></td><td>0.36%</td>
+        <td><span class="tag t-g">陈老师号</span> 高 28%</td></tr>
+      <tr><td>点击成本</td><td>¥2.60</td><td><b>¥2.42</b></td>
+        <td><span class="tag t-g">孙老师号</span> 低 7%</td></tr>
+      <tr><td>千人成本</td><td>¥11.98</td><td><b>¥8.80</b></td>
+        <td><span class="tag t-g">孙老师号</span> 低 26%</td></tr>
+      <tr><td>曝光量</td><td>5,655</td><td><b>6,604</b></td>
+        <td><span class="tag t-g">孙老师号</span> 多 17%</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:13px;color:var(--gry);margin-top:10px">
+    <b>解读</b>：孙老师号拿量能力更强（曝光多、千人成本低 26%），陈老师号主图更吸引人（CTR 高 28%）。
+    说明两号的主图/商品结构有差异，<b>值得交叉对比——把孙老师号的主图风格套到陈老师号试试，反之亦然</b>。
+  </p>
+</div>
+
+<div class="sec">
+  <h2>二、核心问题：50 次点击，0 询单</h2>
+  <p class="lead">这是 Day2 唯一需要解决的问题</p>
+
+  <div class="funnel">
+    <div class="fn"><div class="lb">曝光</div><div class="bx"><div class="bw" style="width:100%;background:linear-gradient(90deg,#3469FF,#5B8DEF)">12,259</div></div>
+      <div class="vw">基数 100%</div></div>
+    <div class="fn"><div class="lb">点击</div><div class="bx"><div class="bw" style="width:0.41%;min-width:70px;background:linear-gradient(90deg,#FF7D00,#FF9F43)">50</div></div>
+      <div class="vw">CTR <b>0.41%</b></div></div>
+    <div class="fn"><div class="lb">询单</div><div class="bx"><div class="bw" style="width:0.2%;min-width:70px;background:var(--red)">0</div></div>
+      <div class="vw">转化 <b style="color:var(--red)">0%</b></div></div>
+    <div class="fn"><div class="lb">下单</div><div class="bx"><div class="bw" style="width:0.2%;min-width:70px;background:var(--gry)">0</div></div>
+      <div class="vw">—</div></div>
+  </div>
+
+  <div class="box b-r">
+    <div class="bt">[重要] 前两环正常，第三环断了</div>
+    <b>曝光 → 点击：0.41%，正常偏上</b>（说明主图能吸引人点进来）<br>
+    <b>点击 → 询单：0%，完全断裂</b>（人点进来了却没人问）<br><br>
+    按闲鱼教育类目常规基准，点击→咨询转化率应在 <b>5%~10%</b>。
+    50 次点击 × 5% = <b>应有 2.5 条咨询</b>，实际 0 条。
+  </div>
+
+  <h3>2.1 五个可能原因（按可能性排序）</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:6%">#</th><th style="width:22%">可能原因</th><th style="width:32%">判断依据</th><th>怎么验证</th></tr></thead>
+    <tbody>
+      <tr><td><b>1</b></td><td><b>详情页没说服力</b></td>
+        <td>点进来看到大段文字，但没看到「能解决什么问题、多少钱、怎么开始」</td>
+        <td>自己用闲鱼 App 搜自己商品的关键词，<b>模拟一次真实点击</b>，走完详情页看是否想咨询</td></tr>
+      <tr><td><b>2</b></td><td><b>咨询入口不明显</b></td>
+        <td>价格标在 19.9 但用户不确定「拍下就是试听课吗」</td>
+        <td>检查商品卡片的「我想要」按钮位置是否醒目，描述里是否明确引导</td></tr>
+      <tr><td><b>3</b></td><td><b>信任不足</b></td>
+        <td>教育服务最看重老师信任，纯文字描述说服力有限</td>
+        <td>详情页是否有老师真人照、课堂实拍、学员反馈</td></tr>
+      <tr><td><b>4</b></td><td><b>价格有落差感</b></td>
+        <td>19.9 便宜到让人怀疑「是不是钓鱼」</td>
+        <td>看是否需要在描述里强化「不绑定课包、试听满意再续」</td></tr>
+      <tr><td><b>5</b></td><td><b>有风险提示拦住了</b></td>
+        <td>陈老师号有 9 个风险商品，若用户在意的那个正好被标记，看到提示就不会咨询</td>
+        <td>逐个排查那 9 个商品，看是否有标记或降权提示</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box b-y">
+    <div class="bt">[提示] 样本量提醒</div>
+    50 次点击的样本，<b>统计上判断 0 询单是否异常还偏早</b>（按 5% 转化率，50 次点击出 0 条的概率约 7.7%）。
+    但结合「CTR 正常 + 询单全 0」这个组合，<b>大概率确实存在转化障碍，值得立刻排查</b>。<br>
+    <b>建议：</b>今天做详情页自查（成本 1 小时），明天再看数据。如果改成新版详情页后仍 0 询单，再考虑出价/人群因素。
+  </div>
+</div>
+
+<div class="sec">
+  <h2>三、前次结论的修正</h2>
+  <p class="lead">Day2 数据推翻了此前基于 Day1 的三个判断</p>
+
+  <div class="tw"><table>
+    <thead><tr><th style="width:26%">此前结论</th><th style="width:10%">判定</th><th>Day2 数据说明</th></tr></thead>
+    <tbody>
+      <tr><td>「账户跑不起来」</td><td><span class="tag t-r">推翻</span></td>
+        <td>Day2 曝光 12,259、花费 ¥125.84，<b>跑得很好</b>。Day1 的 52/111 曝光就是保护期冷启动的正常表现</td></tr>
+      <tr><td>「消耗只有 ¥0.11，是账户问题」</td><td><span class="tag t-r">口径错误</span></td>
+        <td>大鱼代理后台的「账户累计消耗」是<b>代理侧结算口径</b>，店铺端实际已花 ¥125.84。<b>两个后台数据不同步，不能混用分析</b></td></tr>
+      <tr><td>「9 个风险商品是跑不动的元凶」</td><td><span class="tag t-y">存疑</span></td>
+        <td>陈老师号带着 9 个风险商品，曝光照样跑 5,655。说明<b>「风险商品」提示 ≠ 禁止投放</b>，可能只是合规提醒。但仍建议清理，长期会限权重</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box b-b">
+    <div class="bt">[OK] 有一个判断被验证是对的</div>
+    <b>「先提价拿量、再判断素材」的策略是正确的。</b>
+    Day2 曝光 12,259、点击成本 ¥2.52（低于建议价 ¥4.3），证明<b>¥6.0 的溢价出价成功换到了量</b>。<br>
+    如果当时按兵不动、只等 ¥4.3 出价，很可能还是跑在几百曝光的水位上。
+  </div>
+</div>
+
+<div class="sec">
+  <h2>四、Day3（10-19）行动清单</h2>
+  <p class="lead">重点从「拿量」转向「提转化」</p>
+
+  <div class="steps">
+    <div class="step p0"><div class="no">1</div><div class="bd">
+      <b>自查详情页（今天必做，最高优先级）</b>
+      <span>用闲鱼 App 搜自己的商品关键词点进去，<b>扮演一次真实家长</b>，问自己三个问题：<br>
+      ① 看懂这是干什么的吗？② 知道要花多少钱吗？③ 知道下一步该做什么吗？<br>
+      任何一问答不上来，就是详情页的问题。<b>这是 0 询单最可能的原因。</b></span>
+    </div></div>
+    <div class="step p0"><div class="no">2</div><div class="bd">
+      <b>补齐信任要素</b>
+      <span>教育服务的决策门槛在信任。详情页至少要有：<b>老师真人正装照、课堂实拍图、自编讲义实物</b>（已脱敏）。纯文字描述在教育类目说服力不足。</span>
+    </div></div>
+    <div class="step p1"><div class="no">3</div><div class="bd">
+      <b>排查陈老师号 9 个风险商品</b>
+      <span>虽然不是跑不动的原因，但会限权重。用安全版文案替换后重新提交，等数据稳定后再做。</span>
+    </div></div>
+    <div class="step p1"><div class="no">4</div><div class="bd">
+      <b>交叉测试主图风格</b>
+      <span>陈老师号 CTR 0.46% &gt; 孙老师号 0.36%，<b>把陈老师号的主图风格套到孙老师号的一个商品上测</b>，反之亦然。用数据找出哪种主图更有效。</span>
+    </div></div>
+    <div class="step p1"><div class="no">5</div><div class="bd">
+      <b>保持出价与预算不动</b>
+      <span>¥6.0 出价已验证有效，<b>今天不要改</b>。Day1~Day2 的变量只有出价和时段，保持稳定才能归因。</span>
+    </div></div>
+    <div class="step p1"><div class="no">6</div><div class="bd">
+      <b>加贝老师号仍未上架，需补上</b>
+      <span>该号在投商品 0 个。用 J01 J02 J03 三个 SKU 上架，预算 ¥145、出价 ¥7.0（新手号溢价）。</span>
+    </div></div>
+  </div>
+
+  <h3>4.1 出价建议（保持不变）</h3>
+  <div class="g g3">
+    <div class="c grn">
+      <h4>陈老师号 ¥6.0</h4>
+      <p>CTR 最高（0.46%），主图有效。<b>保持不动</b>，观察询单是否随详情页优化出现。</p>
+    </div>
+    <div class="c grn">
+      <h4>孙老师号 ¥6.0</h4>
+      <p>拿量能力最强（千人成本 ¥8.80）。<b>保持不动</b>，同时测试主图风格替换。</p>
+    </div>
+    <div class="c gold">
+      <h4>加贝老师号 ¥7.0</h4>
+      <p>新号需溢价抢量。先上架 3 个 SKU 再投，<b>预算 ¥145</b>。</p>
+    </div>
+  </div>
+
+  <h3>4.2 三天目标</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:16%">日期</th><th style="width:24%">流量目标</th><th style="width:24%">转化目标</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td><b>Day2 已过</b><br>10-18</td><td>曝光 12,259 <span class="tag t-g">达成</span></td>
+        <td>询单 0 <span class="tag t-r">未达成</span></td><td>流量正常，转化断链</td></tr>
+      <tr><td><b>Day3 今天</b><br>10-19</td><td>曝光 ≥12,000<br>点击 ≥50</td>
+        <td><b>询单 ≥3 条</b></td><td>详情页优化后观察第一天效果</td></tr>
+      <tr><td><b>Day4</b><br>10-20</td><td>曝光 ≥15,000<br>CTR ≥0.5%</td>
+        <td>询单 ≥8 条</td><td>若仍 0 询单，说明问题不在详情页，需查人群或风控</td></tr>
+      <tr><td><b>Day5-7</b><br>10-21~23</td><td>三号累计曝光 ≥50,000</td>
+        <td>咨询转化率 ≥5%</td><td>开始考虑放大预算</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="foot">
+  <span>Day2 投放复盘 · 2026-10-18 数据 · 2026-10-19 分析</span>
+  <span>数据来源：闲鱼店铺端擦亮后台</span>
+</div>
+
+</div>
+</body>
+</html>
