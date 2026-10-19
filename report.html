@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>闲鱼投放进展汇报 · 云趣教育</title>
+<style>
+:root{--ink:#0f1b2d;--ink3:#2f4463;--gold:#b8860b;--gold2:#d4a017;--goldl:#f6efe0;
+--red:#c0392b;--redl:#fdecea;--grn:#1e7a54;--grnl:#e8f5ef;--blu:#1b5e9e;--blul:#e9f2fb;
+--gry:#6b7785;--line:#e2e6ec;--bg:#f7f8fa;--w:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);
+color:var(--ink);line-height:1.8;font-size:15px;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#0f1b2d,#1c2f4a 55%,#2a4468);color:#fff;padding:38px 32px 34px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-70px;top:-70px;width:280px;height:280px;border-radius:50%;
+background:radial-gradient(circle,rgba(212,160,23,.2),transparent 68%)}
+.hero .kick{font-size:12px;letter-spacing:2.5px;color:var(--gold2);font-weight:600;margin-bottom:10px}
+.hero h1{font-size:27px;font-weight:800;margin-bottom:9px;position:relative;z-index:2}
+.hero .sub{font-size:14.5px;color:#c3cddb;position:relative;z-index:2}
+.hero .meta{display:flex;gap:26px;margin-top:18px;flex-wrap:wrap;position:relative;z-index:2}
+.hero .meta div{font-size:11.5px;color:#8fa0b6}
+.hero .meta b{display:block;font-size:19px;color:var(--gold2);font-weight:800;margin-top:2px}
+.wrap{max-width:940px;margin:0 auto;padding:24px 22px 56px}
+.sec{margin-top:26px}
+.sec>h2{font-size:18px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.sec>h2::before{content:"";width:4px;height:19px;background:linear-gradient(180deg,var(--gold2),var(--gold));border-radius:2px}
+.box{border-radius:10px;padding:15px 18px;font-size:13.6px;line-height:1.8;border-left:4px solid;margin:11px 0}
+.box .bt{font-weight:800;font-size:14.5px;margin-bottom:6px}
+.b-g{background:var(--grnl);border-color:var(--grn)}.b-g .bt{color:var(--grn)}
+.b-y{background:var(--goldl);border-color:var(--gold)}.b-y .bt{color:#8a6408}
+.b-b{background:var(--blul);border-color:var(--blu)}.b-b .bt{color:var(--blu)}
+.b-r{background:var(--redl);border-color:var(--red)}.b-r .bt{color:var(--red)}
+.g{display:grid;gap:13px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.c{background:var(--w);border:1px solid var(--line);border-radius:11px;padding:16px 17px}
+.c h4{font-size:14px;font-weight:700;margin-bottom:7px;display:flex;align-items:center;gap:7px}
+.c p{font-size:13px;color:var(--ink3);line-height:1.72}
+.c.gold{background:linear-gradient(160deg,#fffdf7,#faf3e3);border-color:#e8d9b8}
+.c .n{font-size:21px;font-weight:800;color:var(--gold);line-height:1.3}
+.c .n small{font-size:12.5px;color:var(--gry)}
+.c .lb{font-size:11.5px;color:var(--gry);font-weight:600;margin-top:3px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:11px;background:var(--w)}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
+th{background:var(--ink);color:#fff;font-weight:700;font-size:12.3px;text-align:left;padding:10px 12px}
+td{padding:9px 12px;border-bottom:1px solid #eef1f5;color:var(--ink3);vertical-align:top;line-height:1.68}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#fafbfc}
+td b{color:var(--ink);font-weight:700}
+.tag{display:inline-block;padding:2px 8px;border-radius:5px;font-size:11.3px;font-weight:700;white-space:nowrap}
+.t-r{background:var(--redl);color:var(--red)}.t-g{background:var(--grnl);color:var(--grn)}
+.t-b{background:var(--blul);color:var(--blu)}.t-y{background:var(--goldl);color:#8a6408}
+ul.l{margin:8px 0 0;padding-left:0;list-style:none}
+ul.l li{position:relative;padding-left:20px;margin-bottom:8px;font-size:13.4px;color:var(--ink3);line-height:1.72}
+ul.l li::before{content:"";position:absolute;left:5px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--gold2)}
+ul.l.chk li::before{content:"✓";background:none;color:var(--grn);font-weight:800;top:0;left:2px}
+.steps{counter-reset:s}
+.step{display:flex;gap:13px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.step:last-child{border-bottom:none}
+.step .no{flex-shrink:0;width:27px;height:27px;border-radius:50%;background:var(--gold);color:#fff;
+display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13.5px}
+.step .bd{flex:1}
+.step .bd b{display:block;font-size:14.2px;margin-bottom:3px;color:var(--ink)}
+.step .bd span{font-size:13.2px;color:var(--ink3);line-height:1.72}
+.kpi{display:flex;gap:10px;flex-wrap:wrap;margin:13px 0}
+.kpi div{flex:1;min-width:100px;background:#fff;border:1px solid var(--line);border-radius:9px;padding:13px}
+.kpi .v{font-size:21px;font-weight:800;letter-spacing:-.5px;color:var(--gold)}
+.kpi .v.g{color:var(--grn)}.kpi .v.b{color:var(--blu)}
+.kpi .k{font-size:11.5px;color:var(--gry);font-weight:600;margin-top:2px}
+.foot{margin-top:32px;padding:18px;border-top:1px solid var(--line);color:var(--gry);font-size:12.5px;
+display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:760px){.g3,.g2{grid-template-columns:1fr}.hero h1{font-size:22px}.wrap{padding:20px 16px 44px}.hero{padding:28px 18px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="kick">投放进展汇报</div>
+  <h1>云趣教育 · 闲鱼投放进展</h1>
+  <div class="sub">三账号已全部授权上线，当前处于平台冷启动保护期，正处在流量池逐步开放的窗口。</div>
+  <div class="meta">
+    <div>已上线账号<b>3 个</b></div>
+    <div>投放资金<b>¥445/天</b></div>
+    <div>账号状态<b>保护中</b></div>
+    <div>可用余额<b>¥2810</b></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="sec">
+  <h2>一、一句话结论</h2>
+  <div class="box b-g">
+    <div class="bt">三个账号都已拿到平台的新号保护，这是好事</div>
+    平台只对新开通、且有潜力的账号给<b>「保护中」标签</b>——意思是系统会先把控投放节奏，避免新号一开就乱花钱、影响后续权重。
+    <b>保护期一旦跑满，流量池会自动放开。</b>我们要做的不是急着烧钱，而是<b>在保护期内把账户权重养扎实</b>，这样放量后拿到的量更稳、单价更低。
+  </div>
+</div>
+
+<div class="sec">
+  <h2>二、平台给我们的三个机会</h2>
+  <div class="g g3">
+    <div class="c gold">
+      <h4>① 保护期红利</h4>
+      <p>保护期内平台对<b>优质新号有流量倾斜</b>。三个号都拿到这个标签，说明资质和内容过了平台初筛。</p>
+    </div>
+    <div class="c gold">
+      <h4>② 成本红利</h4>
+      <p>系统给的建议出价仅 <b>¥4.3/咨询</b>。保护期结束后，随着权重上升，<b>同等出价能拿到的量会成倍增加</b>。</p>
+    </div>
+    <div class="c gold">
+      <h4>③ 城市定向可用</h4>
+      <p>后台每个商品都挂了<b>「可城市定向」</b>标签。等跑通模型后，可按城市收窄，让同样预算<b>触达更精准的家长</b>。</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <h2>三、我们已做的调整</h2>
+  <div class="box b-b">
+    <div class="bt">核心动作：把资源集中到最可能出量的商品</div>
+    三个号同步做了四件事——<b>商品精简、计划合并、出价上调、时段延长</b>。
+    目的是<b>让每一笔预算都花在能被系统识别的高潜商品上</b>，加速权重积累。
+  </div>
+
+  <div class="tw"><table>
+    <thead><tr><th style="width:26%">调整项</th><th style="width:30%">动作</th><th>带来的机会</th></tr></thead>
+    <tbody>
+      <tr><td><b>商品精简</b></td><td>每号从20 个压缩到 <b>3~4 个</b></td>
+        <td>集中权重，让系统在保护期内识别出「哪几个商品值得推」，放量时优先给它们量</td></tr>
+      <tr><td><b>计划合并</b></td><td>每号 <b>1 个计划</b>跑满预算</td>
+        <td>避免预算被切碎，每个计划都跑不出量、拿不到有效数据</td></tr>
+      <tr><td><b>出价上调</b></td><td>¥4.3 → <b>¥6.0 / ¥7.0</b></td>
+        <td>保护期需要溢价才能竞得曝光，<b>先拿到量才能验证素材好坏</b></td></tr>
+      <tr><td><b>时段延长</b></td><td>8:00-23:00 → <b>7:00-24:00</b></td>
+        <td>多覆盖家长<b>早通勤</b>与<b>睡前</b>两个高峰时段</td></tr>
+      <tr><td><b>合规优化</b></td><td>标题与主图全面去 K12 敏感词</td>
+        <td>降低被限流/拒审风险，<b>避免前期积累的权重白费</b></td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="sec">
+  <h2>四、下周会看到什么</h2>
+  <div class="kpi">
+    <div><div class="v g">20000+</div><div class="k">三号累计曝光目标</div></div>
+    <div><div class="v">1%+</div><div class="k">点击率目标</div></div>
+    <div><div class="v b">50+</div><div class="k">咨询量目标</div></div>
+    <div><div class="v">2~3 个</div><div class="k">筛出的高潜商品</div></div>
+  </div>
+
+  <div class="steps">
+    <div class="step"><div class="no">1</div><div class="bd">
+      <b>10-20~10-21：跑通量级</b>
+      <span>三号曝光从当前水平拉到日均2000+ 以上，确认商品能持续被系统推荐。</span>
+    </div></div>
+    <div class="step"><div class="no">2</div><div class="bd">
+      <b>10-22前后：保护期转段</b>
+      <span>这是最关键的节点。跑满后系统会放开流量池，<b>同预算的曝光量通常会有数倍跃升</b>。</span>
+    </div></div>
+    <div class="step"><div class="no">3</div><div class="bd">
+      <b>本周内：锁定高潜商品</b>
+      <span>从跑出的数据里筛出咨询转化最高的 2~3 个商品，后续<b>集中资源加投</b>，形成稳定线索来源。</span>
+    </div></div>
+    <div class="step"><div class="no">4</div><div class="bd">
+      <b>下周起：放开城市定向</b>
+      <span>模型跑通后开启定向投放，<b>同等预算触达更精准的本地家长</b>，咨询成本会明显下降。</span>
+    </div></div>
+  </div>
+
+  <div class="box b-y">
+    <div class="bt">给客户的一个提醒</div>
+    <b>保护期内请不要频繁改动设置</b>——出价、预算、商品数量每次调整，系统都要重新学习一遍，会导致前面积累的权重归零。
+    建议<b>设定后连续跑满 3 天再评估</b>，给账户稳定的成长窗口。
+  </div>
+</div>
+
+<div class="sec">
+  <h2>五、需要客户配合的两件事</h2>
+  <div class="g g2">
+    <div class="c">
+      <h4>1. 咨询承接别掉队</h4>
+      <p>目标跑到日均 <b>20+ 咨询</b>时，建议指定 <b>1~2 名客服</b>在 <b>15 分钟内响应</b>。咨询超时会显著降低成交率。</p>
+    </div>
+    <div class="c">
+      <h4>2. 资质材料确认</h4>
+      <p>「专职教师」「持教师资格证」等表述需<b>真实可查</b>。若与实际不符，平台会限流，反而损失已积累的权重。</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <h2>六、风险提示</h2>
+  <div class="box b-r">
+    <div class="bt">如果 10-22 前曝光仍不足500/天</div>
+    说明不只是保护期因素，我们会启动<b>备选方案</b>：提价至 ¥8 上限、更换主图风格、调整商品组合。
+    <b>同时我们会主动同步进展，不让问题搁置。</b>
+  </div>
+</div>
+
+<div class="foot">
+  <span>云趣教育 · 闲鱼投放进展汇报 · 2026-10-19</span>
+  <span>下一步更新：10-22 保护期节点数据</span>
+</div>
+
+</div>
+</body>
+</html>
